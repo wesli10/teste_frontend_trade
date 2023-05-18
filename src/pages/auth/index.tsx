@@ -1,5 +1,5 @@
-import { Hub } from "@/components/home/Hub";
-import { Container } from "../components/Container";
+import { Hub } from "@/components/auth/Hub";
+import { Container } from "../../components/Container";
 import Head from "next/head";
 
 const Index = () => (

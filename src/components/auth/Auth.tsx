@@ -12,10 +12,12 @@ import { useState } from "react";
 import { FaAngleRight } from "react-icons/fa";
 import { Hero } from "../Hero";
 import { api } from "@/lib/axios";
+import { useRouter } from "next/router";
 
-export const Hub = () => {
+export const Auth = () => {
   const [data, setData] = useState<string>("");
   const toast = useToast();
+  const router = useRouter();
 
   async function handleLogin() {
     if (!data) {
@@ -32,6 +34,18 @@ export const Hub = () => {
         headers: {
           "X-RapidAPI-Key": data,
         },
+      });
+
+      toast({
+        title: "Login realizado com sucesso!",
+        status: "success",
+        isClosable: true,
+        duration: 2000,
+      });
+
+      router.push({
+        pathname: "/home",
+        query: { api_key: data },
       });
 
       console.log(response.data);

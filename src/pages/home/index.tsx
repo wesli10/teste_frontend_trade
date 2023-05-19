@@ -1,13 +1,15 @@
-import { Auth } from "@/components/auth/Auth";
+import { Header } from "@/components/layout/Header";
 import { Container } from "../../components/Container";
 import Head from "next/head";
+import { FormData } from "@/components/home/FormData";
 
 const Index = () => (
   <Container>
     <Head>
       <title>Meu Time</title>
     </Head>
-    <Auth />
+    <Header />
+    <FormData />
   </Container>
 );
 

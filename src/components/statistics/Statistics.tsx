@@ -107,20 +107,32 @@ export default function Statistics() {
 
   useEffect(() => {
     const fetchPlayers = async () => {
-      api
-        .get("/players", {
-          params: {
-            team: teamId,
-            season: season,
-          },
-          headers: {
-            "x-rapidapi-key": api_key,
-          },
-        })
-        .then((response) => setPlayers(response.data.response))
-        .catch((error) => console.log(error));
+      const optionsPlayers = {
+        method: "GET",
+        url: "https://api-football-v1.p.rapidapi.com/v3/players",
+        params: {
+          season: season,
+          team: teamId,
+        },
+        headers: {
+          "X-RapidAPI-Key": api_key,
+        },
+      };
 
-      const options = {
+      try {
+        const responsePlayers = await api.request(optionsPlayers);
+        setPlayers(responsePlayers.data.response);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchPlayers();
+  }, [api_key]);
+
+  useEffect(() => {
+    const fetchStatistics = async () => {
+      const optionsStatistics = {
         method: "GET",
         url: "https://api-football-v1.p.rapidapi.com/v3/teams/statistics",
         params: {
@@ -130,20 +142,19 @@ export default function Statistics() {
         },
         headers: {
           "X-RapidAPI-Key": api_key,
-          "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
         },
       };
 
       try {
-        const response = await api.request(options);
-        setTeamStatistics(response.data.response);
+        const responseStatistics = await api.request(optionsStatistics);
+        setTeamStatistics(responseStatistics.data.response);
       } catch (error) {
         console.error(error);
       }
     };
 
-    fetchPlayers();
-  }, []);
+    fetchStatistics();
+  }, [api_key]);
 
   return (
     <>
@@ -177,7 +188,7 @@ export default function Statistics() {
                 Statistics
               </Tab>
               <Tab fontSize="2xl" w="full">
-                Goals Graphis
+                Goals Graphic
               </Tab>
             </TabList>
             <TabPanels>

@@ -19,6 +19,7 @@ export function SelectOptionsSeason(props: SelectProps) {
       color="orange.200"
       placeholder={props.placeholder}
       onChange={handleSelectChanged}
+      key={""}
     >
       {props.seasons.map((season) => (
         <>

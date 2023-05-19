@@ -23,10 +23,11 @@ export function SelectOptionsCountry(props: SelectProps) {
       color="orange.200"
       placeholder={props.placeholder}
       onChange={handleSelectChanged}
+      key={""}
     >
       {props.contries.map((country) => (
         <>
-          <option color="orange.200" key={country.name} value={country.name}>
+          <option color="orange.200" key={country.code} value={country.name}>
             {country.code} - {country.name}
           </option>
         </>

@@ -16,8 +16,7 @@ export function PlayerDetail(props: PlayerProps) {
       }}
       borderRadius={30}
       display="inline-grid"
-      justifyContent="center"
-      margin={6}
+      margin={4}
       border="2px"
     >
       <Box

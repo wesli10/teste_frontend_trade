@@ -22,7 +22,7 @@ export function TeamDetail(props: TeamProps) {
     router.push({
       pathname: "/statistics",
       query: {
-        api: props.api,
+        api_key: props.api,
         teamId: props.teamId,
         teamName: props.teamName,
         leagueId: props.teamLeague,

@@ -47,8 +47,6 @@ export function Leagues() {
       .catch((error) => console.log(error));
   }, [api_key]);
 
-  console.log(leagues);
-
   return (
     <>
       <Flex

@@ -1,4 +1,4 @@
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Image, Text, useDisclosure } from "@chakra-ui/react";
 import { Divider } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
@@ -7,6 +7,7 @@ interface TeamProps {
   teamId: number;
   teamCountry: string;
   teamLogo: string;
+  teamLeague: string | string[] | undefined;
   venueName: string;
   venueCity?: string;
   venueCapacity?: string;
@@ -15,6 +16,20 @@ interface TeamProps {
 
 export function TeamDetail(props: TeamProps) {
   const router = useRouter();
+  const { season } = router.query;
+
+  function handleClick() {
+    router.push({
+      pathname: "/statistics",
+      query: {
+        api: props.api,
+        teamId: props.teamId,
+        teamName: props.teamName,
+        leagueId: props.teamLeague,
+        season: season,
+      },
+    });
+  }
 
   return (
     <Box
@@ -26,6 +41,7 @@ export function TeamDetail(props: TeamProps) {
       display="inline-grid"
       margin={5}
       border="2px"
+      onClick={handleClick}
     >
       <Box
         display="flow"

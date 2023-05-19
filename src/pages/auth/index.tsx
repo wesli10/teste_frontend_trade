@@ -5,7 +5,7 @@ import Head from "next/head";
 const Index = () => (
   <Container>
     <Head>
-      <title>Meu Time</title>
+      <title>My Team</title>
     </Head>
     <Auth />
   </Container>

@@ -47,8 +47,6 @@ export const Auth = () => {
         pathname: "/home",
         query: { api_key: data },
       });
-
-      console.log(response.data);
     } catch (error) {
       toast({
         title: "Insira uma key válida!",

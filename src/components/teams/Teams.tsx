@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { api } from "@/lib/axios";
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
@@ -10,6 +11,7 @@ interface TeamsDataProps {
     name: string;
     country: string;
     logo: string;
+    leagueId: number;
   };
   venue: {
     name: string;
@@ -39,10 +41,7 @@ export function Teams() {
       })
       .then((response) => setTeams(response.data.response))
       .catch((error) => console.log(error));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [api_key]);
-
-  console.log(Teams);
+  }, []);
 
   return (
     <>
@@ -69,6 +68,7 @@ export function Teams() {
         {Teams?.map((team) => (
           <TeamDetail
             key={team.team.id}
+            teamLeague={league}
             teamCountry={team.team.country}
             teamName={team.team.name}
             teamLogo={team.team.logo}

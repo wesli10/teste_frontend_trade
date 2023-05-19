@@ -1,5 +1,5 @@
 import { Auth } from "@/components/auth/Auth";
-import { Container } from "../../components/Container";
+import { Container } from "../components/Container";
 import Head from "next/head";
 
 const Index = () => (

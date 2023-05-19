@@ -129,8 +129,7 @@ export default function Statistics() {
           team: teamId,
         },
         headers: {
-          "X-RapidAPI-Key":
-            "4614da9bb7mshf93ad6df4031c60p12694ajsnb45f36f9a434",
+          "X-RapidAPI-Key": api_key,
           "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
         },
       };
